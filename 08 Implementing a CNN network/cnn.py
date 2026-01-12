@@ -1,3 +1,4 @@
+import torch
 from torch import nn
 from torchsummary import summary
 
@@ -68,6 +69,10 @@ class CNNNetwork(nn.Module):
 
 if __name__ == "__main__":
     cnn = CNNNetwork()
-    summary(cnn.cuda(), (1, 64, 44))
-
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # Move the model to the detected device
+    cnn = cnn.to(device)
+    # Execute summary
+    summary(cnn, (1, 64, 44))
 
