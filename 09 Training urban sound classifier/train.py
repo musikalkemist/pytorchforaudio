@@ -47,11 +47,9 @@ def train(model, data_loader, loss_fn, optimiser, device, epochs):
 
 
 if __name__ == "__main__":
-    if torch.cuda.is_available():
-        device = "cuda"
-    else:
-        device = "cpu"
-    print(f"Using {device}")
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device {device}")
 
     # instantiating our dataset object and create data loader
     mel_spectrogram = torchaudio.transforms.MelSpectrogram(

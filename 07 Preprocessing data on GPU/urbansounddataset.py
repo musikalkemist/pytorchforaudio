@@ -77,10 +77,8 @@ if __name__ == "__main__":
     SAMPLE_RATE = 22050
     NUM_SAMPLES = 22050
 
-    if torch.cuda.is_available():
-        device = "cuda"
-    else:
-        device = "cpu"
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device {device}")
 
     mel_spectrogram = torchaudio.transforms.MelSpectrogram(
