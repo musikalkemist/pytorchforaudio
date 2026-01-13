@@ -5,16 +5,12 @@ from torch.utils.data import DataLoader
 
 from urbansounddataset import UrbanSoundDataset
 from cnn import CNNNetwork
+from urbansounddataset import AUDIO_DIR, ANNOTATIONS_FILE, SAMPLE_RATE, NUM_SAMPLES
 
 
 BATCH_SIZE = 128
 EPOCHS = 10
 LEARNING_RATE = 0.001
-
-ANNOTATIONS_FILE = "/home/valerio/datasets/UrbanSound8K/metadata/UrbanSound8K.csv"
-AUDIO_DIR = "/home/valerio/datasets/UrbanSound8K/audio"
-SAMPLE_RATE = 22050
-NUM_SAMPLES = 22050
 
 
 def create_data_loader(train_data, batch_size):
