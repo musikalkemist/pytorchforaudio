@@ -3,6 +3,32 @@ Code for the "[PyTorch for Audio + Music Processing](https://www.youtube.com/pla
 
 This repository is a comprehensive collection of resources and code for understanding and implementing deep learning models for audio tasks using PyTorch and Torchaudio. It serves as a practical guide, moving from basic neural network implementations to building a complete sound classification system (CNN) trained on the UrbanSound8K dataset.
 
+![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![Torchaudio](https://img.shields.io/badge/Torchaudio-black?style=flat&logo=pytorch&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+### Note on Versioning
+> While this v2 release is fully functional and optimized for current environments, it differs from the original version shown in the course. The codebase has been updated to reflect modern best practices and improved dependency management. Consequently, the original course version has been deprecated; however, it remains available in the [legacy branch](https://github.com/musikalkemist/pytorchforaudio/tree/legacy) for those wishing to follow the video content exactly.
+
+# Table of Contents
+* [Dataset Setup (UrbanSound8K)](#dataset-setup-urbansound8k)
+* [Course Structure](#course-structure)
+    * [1. Introduction & Basics](#introduction--basics)
+    * [2. Audio Data Processing](#audio-data-processing)
+    * [3. Sound Classification Project](#sound-classification-project-urbansound8k)
+* [How to Run the Scripts](#how-to-run-the-scripts)
+
+---
+
+## Dataset Setup _(UrbanSound8K)_
+
+To run the sound classification lessons (8-10), you will need the UrbanSound8K dataset. We provide an **automated downloader** to handle the acquisition, path sanitization, and folder organization for you.
+* **Quick Start:** Run `python dataset_downloader.py` from the root directory.
+* **Options:** Supports `--COPY` flag to preserve your Kaggle cache.
+> **Full Instructions:** Please check the [Instructions UrbanSound8K](Instructions_UrbanSound8K.md) file for help using the downloader script or manual download steps.
+
 ## Course Structure
 
 ### Introduction & Basics
@@ -29,6 +55,33 @@ This repository is a comprehensive collection of resources and code for understa
 10. **Predictions with a Sound Classifier:** _[Video][10yt] | [Code][10cd]_
 
 ---
+
+## How to Run the Scripts
+To ensure the models and scripts execute correctly, please follow these steps from your terminal:
+
+### 1. Navigate to the Lesson Folder
+
+Each class is self-contained. Move into the specific directory for the lesson you are studying:
+
+```bash
+cd class/folder/name  # Replace with the specific class directory
+```
+
+### 2. Prepare the Environment (Recommended)
+
+Before running inference, ensure you have the necessary dependencies installed:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Execute the Script
+
+Run the inference or training script using Python:
+
+```bash
+python inference.py  # Replace with the specific script name
+```
 
 [1yt]: https://www.youtube.com/watch?v=gp2wZqDoJ1Y
 [1sl]: <01 Course overview/PyTorch for Audio and Music Processing.pdf>
