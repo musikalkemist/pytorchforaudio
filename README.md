@@ -59,20 +59,20 @@ To run the sound classification lessons (8-10), you will need the UrbanSound8K d
 ## How to Run the Scripts
 To ensure the models and scripts execute correctly, please follow these steps from your terminal:
 
-### 1. Navigate to the Lesson Folder
-
-Each class is self-contained. Move into the specific directory for the lesson you are studying:
-
-```bash
-cd class/folder/name  # Replace with the specific class directory
-```
-
-### 2. Prepare the Environment (Recommended)
+### 1. Prepare the Environment (Recommended)
 
 Before running inference, ensure you have the necessary dependencies installed:
 
 ```bash
 pip install -r requirements.txt
+```
+
+### 2. Navigate to the Lesson Folder
+
+Each class is self-contained. Move into the specific directory for the lesson you are studying:
+
+```bash
+cd 'class/folder/name'  # Replace with the specific directory path (ensure it is enclosed in quotes).
 ```
 
 ### 3. Execute the Script
