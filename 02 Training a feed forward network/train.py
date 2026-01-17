@@ -88,12 +88,11 @@ if __name__ == "__main__":
     train_data, _ = download_mnist_datasets()
     train_dataloader = create_data_loader(train_data, BATCH_SIZE)
 
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device {device}")
+    
     # construct model and assign it to device
-    if torch.cuda.is_available():
-        device = "cuda"
-    else:
-        device = "cpu"
-    print(f"Using {device}")
     feed_forward_net = FeedForwardNet().to(device)
     print(feed_forward_net)
 

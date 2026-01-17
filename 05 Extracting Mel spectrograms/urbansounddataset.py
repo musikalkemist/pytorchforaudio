@@ -5,6 +5,10 @@ from torch.utils.data import Dataset
 import pandas as pd
 import torchaudio
 
+DATASET_PATH = "../datasets/UrbanSound8K/"
+ANNOTATIONS_FILE = f"{DATASET_PATH}metadata/UrbanSound8K.csv"
+AUDIO_DIR = f"{DATASET_PATH}audio/"
+SAMPLE_RATE = 16000 # It will be changed in the next lesson
 
 class UrbanSoundDataset(Dataset):
 
@@ -41,8 +45,8 @@ class UrbanSoundDataset(Dataset):
 
     def _get_audio_sample_path(self, index):
         fold = f"fold{self.annotations.iloc[index, 5]}"
-        path = os.path.join(self.audio_dir, fold, self.annotations.iloc[
-            index, 0])
+        filename = str(self.annotations.iloc[index, 0])
+        path = os.path.join(self.audio_dir, fold, filename)
         return path
 
     def _get_audio_sample_label(self, index):
@@ -50,9 +54,8 @@ class UrbanSoundDataset(Dataset):
 
 
 if __name__ == "__main__":
-    ANNOTATIONS_FILE = "/home/valerio/datasets/UrbanSound8K/metadata/UrbanSound8K.csv"
-    AUDIO_DIR = "/home/valerio/datasets/UrbanSound8K/audio"
-    SAMPLE_RATE = 16000
+    # ANNOTATIONS_FILE, AUDIO_DIR, and SAMPLE_RATE moved to the header of this file (v2)
+    # Check the 'legacy' branch (deprecated) for the code version shown in the video (see README).
 
     mel_spectrogram = torchaudio.transforms.MelSpectrogram(
         sample_rate=SAMPLE_RATE,
@@ -61,7 +64,9 @@ if __name__ == "__main__":
         n_mels=64
     )
 
-    usd = UrbanSoundDataset(ANNOTATIONS_FILE, AUDIO_DIR, mel_spectrogram,
+    usd = UrbanSoundDataset(ANNOTATIONS_FILE,
+                            AUDIO_DIR,
+                            mel_spectrogram,
                             SAMPLE_RATE)
     print(f"There are {len(usd)} samples in the dataset.")
     signal, label = usd[0]
