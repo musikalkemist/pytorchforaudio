@@ -27,12 +27,13 @@ class FeedForwardNet(nn.Module):
             nn.ReLU(),
             nn.Linear(256, 10)
         )
-        self.softmax = nn.Softmax(dim=1)
+        # While in the video we apply SoftMax, it's not necessary.
+        # SoftMax is not needed when applying nn.CrossEntropyLoss,
+        # the calculation comes inside already.
 
     def forward(self, input_data):
         x = self.flatten(input_data)
-        logits = self.dense_layers(x)
-        predictions = self.softmax(logits)
+        predictions = self.dense_layers(x)
         return predictions
 
 
