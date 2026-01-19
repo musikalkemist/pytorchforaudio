@@ -10,7 +10,7 @@ This repository is a comprehensive collection of resources and code for understa
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ### Note on Versioning
-> While this v2 release is fully functional and optimized for current environments, it differs from the original version shown in the course. The codebase has been updated to reflect modern best practices and improved dependency management. Consequently, the original course version has been deprecated; however, it remains available in the [legacy branch](https://github.com/musikalkemist/pytorchforaudio/tree/legacy) for those wishing to follow the video content exactly.
+> While this v2 release is fully functional and optimized for current environments, it may differ from the original version shown in the course. The codebase has been updated to reflect modern best practices and improved dependency management. Consequently, the original course version has been deprecated; however, it remains available in the [legacy branch](https://github.com/musikalkemist/pytorchforaudio/tree/legacy) for those wishing to follow the video content exactly.
 
 # Table of Contents
 * [Dataset Setup (UrbanSound8K)](#dataset-setup-urbansound8k)
@@ -83,6 +83,9 @@ Run the inference or training script using Python:
 python inference.py  # Replace with the specific script name
 ```
 
+
+<!-- Reference links for every chapter:
+YouTube videos (#yt), PDF-file slides (#sl) and Jupyter Notebooks (#nb) -->
 [1yt]: https://www.youtube.com/watch?v=gp2wZqDoJ1Y
 [1sl]: <01 Course overview/PyTorch for Audio and Music Processing.pdf>
 
