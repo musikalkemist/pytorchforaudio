@@ -28,9 +28,13 @@ def predict(model, input, target, class_mapping):
 
 
 if __name__ == "__main__":
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device: {device}") # Show device being used
+
     # load back the model
     feed_forward_net = FeedForwardNet()
-    state_dict = torch.load("feedforwardnet.pth")
+    state_dict = torch.load("feedforwardnet.pth", map_location=torch.device(device))
     feed_forward_net.load_state_dict(state_dict)
 
     # load MNIST validation dataset

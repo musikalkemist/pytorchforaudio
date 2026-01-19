@@ -27,12 +27,13 @@ class FeedForwardNet(nn.Module):
             nn.ReLU(),
             nn.Linear(256, 10)
         )
-        self.softmax = nn.Softmax(dim=1)
+        # While in the video we apply SoftMax, it's not necessary.
+        # SoftMax is not needed when applying nn.CrossEntropyLoss,
+        # the calculation comes inside already.
 
     def forward(self, input_data):
         x = self.flatten(input_data)
-        logits = self.dense_layers(x)
-        predictions = self.softmax(logits)
+        predictions = self.dense_layers(x)
         return predictions
 
 
@@ -87,12 +88,11 @@ if __name__ == "__main__":
     train_data, _ = download_mnist_datasets()
     train_dataloader = create_data_loader(train_data, BATCH_SIZE)
 
+    # Detect if an NVIDIA GPU is available, otherwise use CPU
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device {device}")
+    
     # construct model and assign it to device
-    if torch.cuda.is_available():
-        device = "cuda"
-    else:
-        device = "cpu"
-    print(f"Using {device}")
     feed_forward_net = FeedForwardNet().to(device)
     print(feed_forward_net)
 
