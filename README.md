@@ -3,6 +3,7 @@ Code for the "[PyTorch for Audio + Music Processing](https://www.youtube.com/pla
 
 This repository is a comprehensive collection of resources and code for understanding and implementing deep learning models for audio tasks using PyTorch and Torchaudio. It serves as a practical guide, moving from basic neural network implementations to building a complete sound classification system (CNN) trained on the UrbanSound8K dataset.
 
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
 ![Torchaudio](https://img.shields.io/badge/Torchaudio-black?style=flat&logo=pytorch&logoColor=white)
